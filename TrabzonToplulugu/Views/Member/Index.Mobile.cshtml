@@ -1,0 +1,27 @@
+﻿@model IEnumerable<TrabzonToplulugu.Models.ViewModel.MemberViewModel>
+
+<h2>Index (@Model.Count()) - bu mobil versiyon</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Display Name</th>
+            <th><a href="/member/create" class="btn btn-primary">Create</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var memberViewModel in Model)
+        {
+            <tr>
+                <th>@memberViewModel.Id</th>
+                <th>@memberViewModel.DisplayName</th>
+                <th>
+                    <a href="/member/get/@memberViewModel.Id">Görüntüle</a>
+                    <a href="/member/update/@memberViewModel.Id">Düzenle</a>
+                    <a href="/member/delete/@memberViewModel.Id" onclick="return confirm('Emin misin?')">Sil</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
